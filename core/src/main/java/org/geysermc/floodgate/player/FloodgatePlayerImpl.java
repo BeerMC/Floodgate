@@ -25,6 +25,7 @@
 
 package org.geysermc.floodgate.player;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -73,7 +74,8 @@ public final class FloodgatePlayerImpl implements FloodgatePlayer {
     static FloodgatePlayerImpl from(BedrockData data, HandshakeData handshakeData) {
         FloodgateApi api = FloodgateApi.getInstance();
 
-        UUID javaUniqueId = Utils.getJavaUuid(data.getXuid());
+//        UUID javaUniqueId = Utils.getJavaUuid(data.getXuid());
+        UUID javaUniqueId = UUID.nameUUIDFromBytes(("OfflinePlayer:" + data.getUsername()).getBytes(StandardCharsets.UTF_8));
 
         DeviceOs deviceOs = DeviceOs.fromId(data.getDeviceOs());
         UiProfile uiProfile = UiProfile.fromId(data.getUiProfile());
