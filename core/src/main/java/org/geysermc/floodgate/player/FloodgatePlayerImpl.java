@@ -75,7 +75,8 @@ public final class FloodgatePlayerImpl implements FloodgatePlayer {
         FloodgateApi api = FloodgateApi.getInstance();
 
 //        UUID javaUniqueId = Utils.getJavaUuid(data.getXuid());
-        UUID javaUniqueId = UUID.nameUUIDFromBytes(("OfflinePlayer:" + data.getUsername()).getBytes(StandardCharsets.UTF_8));
+//        UUID javaUniqueId = UUID.nameUUIDFromBytes(("OfflinePlayer:" + data.getUsername()).getBytes(StandardCharsets.UTF_8));
+        UUID javaUniqueId = handshakeData.getJavaUniqueId();
 
         DeviceOs deviceOs = DeviceOs.fromId(data.getDeviceOs());
         UiProfile uiProfile = UiProfile.fromId(data.getUiProfile());
